@@ -39,11 +39,11 @@ def processRequest(req):
     if req.get("result").get("action") != "webhookAction":
         return {}
     
-    res = makeYqlQuery(req)
+    res = responseToQuery(req)
     return res
 
 
-def makeYqlQuery(req):
+def responseToQuery(req):
     result = req.get("result")
     metadata = result.get("metadata")
     intent = metadata.get("intentName")
@@ -62,9 +62,6 @@ def makeYqlQuery(req):
         # "contextOut": [],
         "source": "weather-webhook"
     }
-
-
-
 
 
 if __name__ == '__main__':
