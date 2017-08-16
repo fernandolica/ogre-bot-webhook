@@ -50,22 +50,8 @@ def findIntent(req):
     if city is None:
         return None
 
-    if intentName = "Plan Everis+ \ Joining Conditions"{
-        speech = "o intent é :" + intent + "\n" + ''' resposta: 
-        + "Por favor, especifique qual o serviço do plano Everis+ ao qual quer aderir:
-        - Passe Social
-        - Internet e Data
-        - Comunicação por Voz
-        - Estacionamento
-        - Formação Profissional
-        - Dias Everis+
-        - Equipamento Electrónico
-        - Actividades Desportivas
-        - Vouchers Cresce e Educação
-        - Planos de Pensões '''
-    }
 
-    if intentName = "Plan Everis+ \ Description"{
+    if intentName = "Plan Everis+ \\  Description"{
         speech = "o intent é :" + intent + "\n" + ''' resposta: 
         O plano everis+ é uma oferta inovadora, que surge no sentido de proporcionar um conjunto de
          benefícios que possibilitem, de forma mais eficiente, melhorar e ampliar as opções 
@@ -73,7 +59,7 @@ def findIntent(req):
          benefícios sociais, opções profissionais e créditos everis+. '''
     }
 
-    if intentName = "Plan Everis+ \ Objectives"{
+    if intentName = "Plan Everis+ \\  Objectives"{
         speech = "o intent é :" + intent + "\n" + ''' resposta: 
         O plano everis+ tem como objetivo proporcionar um conjunto de benefícios que possibilitem, 
         de forma mais eficiente, melhorar e ampliar as opções disponíveis para os Colaboradores.'''
@@ -116,3 +102,4 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
     app.run(debug=False, port=port, host='0.0.0.0')
+
