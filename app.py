@@ -52,10 +52,6 @@ def makeYqlQuery(req):
 
     speech = "o intent é:" + intent
    
-        
-    print("Response:")
-    print(speech)
-
     return {
         "speech": speech,
         "displayText": speech,
