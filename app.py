@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "everisCompanyDescription":
+    if req.get("result").get("action") != "webhookAction":
         return {}
     
     res = makeYqlQuery(req)
@@ -50,7 +50,11 @@ def makeYqlQuery(req):
     if intent is None:
         return None
 
-    speech = "o intent é:" + intent
+    if intent == "Everis Company Description"{
+        speech = "o intent é:" + intent + "resposta:" + '''A everis é uma empresa multinacional de consultoria 
+        que desenvolve soluções de negócio, tecnologia da informação e outsourcing para os setores de bancos, 
+        seguros, telecomunicações, indústria e governo.'''
+    }
         
     print("Response:")
     print(speech)
