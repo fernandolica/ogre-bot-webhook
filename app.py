@@ -51,7 +51,9 @@ def makeYqlQuery(req):
         return None
     
     if intent == "Everis Company Description":
-        speech = "o intent é:" + intent
+        speech = "o intent é:" + intent + "resposta:" + ''' A everis é uma empresa multinacional de consultoria 
+        que desenvolve soluções de negócio, tecnologia da informação e outsourcing para os setores de bancos, 
+        seguros, telecomunicações, indústria e governo.'''
    
     return {
         "speech": speech,
