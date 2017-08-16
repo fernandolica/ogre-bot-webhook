@@ -51,9 +51,12 @@ def responseToQuery(req):
         return None
     
     if intent == "Everis Company Description":
-        speech = "Intent: " + intent + "\n" + "Resposta: " + "\n" + ''' A everis é uma empresa multinacional de consultoria 
+        speech = ''' A everis é uma empresa multinacional de consultoria 
         que desenvolve soluções de negócio, tecnologia da informação e outsourcing para os setores de bancos, 
         seguros, telecomunicações, indústria e governo.'''
+        
+    if intent == "End Conversation":
+        speech = "Ok, espero ter respondido a todas a suas questões. Até á próxima :)"
    
     return {
         "speech": speech,
