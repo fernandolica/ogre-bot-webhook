@@ -50,11 +50,7 @@ def findIntent(req):
     if city is None:
         return None
 
-    speech = "o intent é :" + intent + "\n" + ''' resposta: 
-        O plano everis+ é uma oferta inovadora, que surge no sentido de proporcionar um conjunto de
-         benefícios que possibilitem, de forma mais eficiente, melhorar e ampliar as opções 
-         disponíveis para os Colaboradores. O catalogo de benefícios encontram-se dividido em três categorias: 
-         benefícios sociais, opções profissionais e créditos everis+. '''
+    speech = "o intent é :" + intent
     
 
     print("Response:")
