@@ -49,8 +49,12 @@ def makeYqlQuery(req):
     intent = metadata.get("intentName")
     if intent is None:
         return None
+    
+    if intent == "Everis Company Description"{
+        speech = "o intent é:" + intent
+    }
 
-    speech = "o intent é:" + intent
+    speech = "fora do if"
    
     return {
         "speech": speech,
