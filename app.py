@@ -36,70 +36,68 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") != "planEverisPlus":
         return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    ''' if yql_query is None:
-        return {}
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result) '''
-    res = yql_query
+   
+    res = findIntent(req)
     return res
 
 
-def makeYqlQuery(req):
+def findIntent(req):
     result = req.get("result")
     metadata = result.get("metadata")
     intent = metadata.get("intentName")
-    if intent is None:
+    if city is None:
         return None
 
-    speech = "o intent é:" + intent
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "weather-webhook"
+    if intentName = "Plan Everis+ \ Joining Conditions"{
+        speech = "o intent é :" + intent + "\n" + ''' resposta: 
+        + "Por favor, especifique qual o serviço do plano Everis+ ao qual quer aderir:
+        - Passe Social
+        - Internet e Data
+        - Comunicação por Voz
+        - Estacionamento
+        - Formação Profissional
+        - Dias Everis+
+        - Equipamento Electrónico
+        - Actividades Desportivas
+        - Vouchers Cresce e Educação
+        - Planos de Pensões '''
     }
 
-    # return intent
+    if intentName = "Plan Everis+ \ Description"{
+        speech = "o intent é :" + intent + "\n" + ''' resposta: 
+        O plano everis+ é uma oferta inovadora, que surge no sentido de proporcionar um conjunto de
+         benefícios que possibilitem, de forma mais eficiente, melhorar e ampliar as opções 
+         disponíveis para os Colaboradores. O catalogo de benefícios encontram-se dividido em três categorias: 
+         benefícios sociais, opções profissionais e créditos everis+. '''
+    }
 
+    if intentName = "Plan Everis+ \ Objectives"{
+        speech = "o intent é :" + intent + "\n" + ''' resposta: 
+        O plano everis+ tem como objetivo proporcionar um conjunto de benefícios que possibilitem, 
+        de forma mais eficiente, melhorar e ampliar as opções disponíveis para os Colaboradores.'''
+    }
 
-''' def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
+    if intentName = "Plan Everis+ \ Joining Conditions"{
+        speech = "o intent é :" + intent + "\n" + ''' resposta: 
+        Por favor, especifique qual o serviço do plano Everis+ ao qual quer aderir:
+        - Passe Social
+        - Internet e Data
+        - Comunicação por Voz
+        - Estacionamento
+        - Formação Profissional
+        - Dias Everis+
+        - Equipamento Electrónico
+        - Actividades Desportivas
+        - Vouchers Cresce e Educação
+        - Planos de Pensões '''
+    }
 
-    result = query.get('results')
-    if result is None:
-        return {}
+    
 
-    channel = result.get('channel')
-    if channel is None:
-        return {}
+    
 
-    item = channel.get('item')
-    location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-        return {}
-
-    condition = item.get('condition')
-    if condition is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
-    speech = "Condição atmosferica de hoje em " + location.get('city') + ": " + condition.get('text') + \
-             ", a temperatura é " + condition.get('temp') + " " + units.get('temperature')
-        
     print("Response:")
     print(speech)
 
@@ -109,7 +107,7 @@ def makeYqlQuery(req):
         # "data": data,
         # "contextOut": [],
         "source": "weather-webhook"
-    } '''
+
 
 
 if __name__ == '__main__':
