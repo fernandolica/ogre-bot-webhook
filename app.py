@@ -50,11 +50,8 @@ def makeYqlQuery(req):
     if intent is None:
         return None
     
-    if intent == "Everis Company Description"{
+    if intent == "Everis Company Description":
         speech = "o intent é:" + intent
-    }
-
-    speech = "fora do if"
    
     return {
         "speech": speech,
