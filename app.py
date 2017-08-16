@@ -36,7 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "getIntent":
+    if req.get("result").get("action") != "everisCompanyDescription":
         return {}
     
     res = makeYqlQuery(req)
