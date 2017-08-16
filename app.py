@@ -36,23 +36,22 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "planEverisPlus":
+    if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
-   
-    res = findIntent(req)
+    
+    res = makeYqlQuery(req)
     return res
 
 
-def findIntent(req):
+def makeYqlQuery(req):
     result = req.get("result")
     metadata = result.get("metadata")
     intent = metadata.get("intentName")
-    if city is None:
+    if intent is None:
         return None
 
-    speech = "o intent é :" + intent
-    
-
+    speech = "o intent é:" + intent
+        
     print("Response:")
     print(speech)
 
@@ -62,6 +61,9 @@ def findIntent(req):
         # "data": data,
         # "contextOut": [],
         "source": "weather-webhook"
+    }
+
+
 
 
 
@@ -71,4 +73,3 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
     app.run(debug=False, port=port, host='0.0.0.0')
-
